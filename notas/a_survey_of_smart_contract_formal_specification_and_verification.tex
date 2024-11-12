@@ -1,0 +1,243 @@
+Los llamados {\it smart contracts} son programas de computadora
+que permiten a los usuarios automatizar las acciones de las 
+{\it BlockChains}. Actualmente los {\it smart contracts}
+han cobrado relevancía en multiples sectores, como lo son
+la cadena de suministros, finanzas, servicios legales médicos
+y {\bf electorales}. La importancía de estos está sujeta a
+una verificación.
+
+%% Hablar de que son las especificaciones formales y pq no hay
+%% En las BC
+
+BlockChains como herramienta que surgió del deseo de
+almacenar información con marca de tiempo en
+una cadena criptograficamente segura.
+
+BlockChain: Registro distribuido compartido entre
+los nodos en una red {\it peer-to-peer} que sigue
+algún {\it protocolo de consenso}.
+
+Ethereum comenzó la llamada BlockChain 2.0
+que expande las capacidades y aplicaciones
+al introducir{\it smart contracts} que cumplen
+con ser {\it Turing Completos}.
+
+{\it Smart Contract} acuñado por Nich Szabo.
+[198] Nick Szabo. 1997. Formalizing and Securing
+Relationships on Public Networks. First Monday 2, 9 (Sep. 1997).
+
+Ej. En Ethereum, cada {\it contrato} esta asociado
+con una {\it dirección}, un {\it balance} y
+codigo ejecutable.  Las funciones son llamadas
+a ejecución a través de mensajes de transacción enviados
+por usuarios de la BC. Ethereum usa Solidity como lenguaje de SC.
+
+
+
+Understanding the DAO attack. paper
+Parity Multsig Wallet
+King of the Ether throne 
+
+
+En este árticulo se centran en las distintas
+técnicas que se han seguido para verificar
+SC. Con especial atención a propiedades
+de dominio especifico ({\it domain-specific properties})
+y demás formalizmos que cubren dichas especificaciones
+para así verificarlas.
+
+
+Formal Verification: Una especificación es un conjunto de propiedades
+que describen el comportamiento deseado de los SC,
+usualmente siguiendo las intenciones de los desarrolladores. 
+
+Models and specification:
+
+EL PAPER SOLO HABLA DE UN VERIFICACIÖN DE SC, no se mete con:
+Scalability, Consensus, interaction with IoT, etc
+
+Establecer los nexos entre los distintos
+tipos de propiedades y los formalismos
+que los soportan.
+
+% Sección II
+Smart contract modeling formalism
+Hay dos categorías, caja negra vs caja blanca:
+
+Cajas blancas son sistemas deductvos, nos permiten ver paso a paso TLA+
+\begin{enumerate}
+\item A nível de contrato
+
+  Se suelen enfocar en el comportamiento de alto nível
+  de los SC. No suelen considerar detalles técnicos
+  de su implementación y ejecución.
+
+  Describen la interacción entre SC y agentes externos
+  que por lo general son usuarios de la BC.
+
+  Los detalles del SC son abstraidos en funciones publicas
+  que son invocadas por el usuario, cuya ejecución tiene
+  resultados observables como lo son: eventos emitidos, o
+  un cambio en el {\it estado} de la BC.
+
+\item A nivel de programa
+
+  Analísis en la implementación del contrato (código fuente
+  o código compilado). Por lo tanto hay tantos como plataformas
+  de SC.  Este enfoque permiten razonar sobre detalles de bajo
+  nivel de la ejecución de los SC. 
+\end{enumerate}
+
+%% Sección 3 Smart Contract Specifications
+Se entiende como especificaciónes de SC
+como propiedades escritas en lenguaje formal
+sobre el comportamiento de los SC.
+
+Semejanzas entre las especificaciones
+{\it model-oriented} y {\it property-oriented}
+utilizadas en las lógicas de Hoare y
+{\it contract-level} y {\it program-level}
+para hablar de las especificaciones de los SC.
+Siendo de alto y bajo nivel respectivamente.
+
+Checar bien la sección 3.1.1 pag 12. Se hace mención
+de que lógicas ayudan para formalizar el comportamiento
+de BC.
+
+Contract level:
+
+Ambas propiedades, {\it Safety} y {\it liveness}, estan
+relacionadas con la idea de tiempo. Como los
+SC actúan a través de este.
+\begin{itemize}
+\item {\it Safety}: ``Nunca ocurre nada malo''. Expresan
+invarianza. Estan relacionados los {\it deadlock-freedom}.
+Definen valores permisibles para las variables de estado,
+que establecen invariantes sobre el balance del SC:
+especificando control de acceso a ciertas funciones o
+definiendo un posible orden de eventos.
+\item {\it Liveness}: ``Algo bueno eventualmente pasara'',
+posibilidad que un evento progrese. Que en el contexto
+de los SC por lo general se refiera a que
+ls BC sea capaz de dar cryptocurrency. Hay varias y
+estan asociadas al algoritmo de consenso: 
+\begin{itemize}
+\item {\it Liquidity}
+\item posibilidad de llegar a otro estado.
+\end{itemize}
+
+%%Linear temporal Logic
+
+%% Computational Tree Logic,
+%Alternanting Temporal, Stategic Logics.
+% Dynamic Logic, Linead Dynamic logic,
+
+%% -----
+% Superioridad de Denotic and Defeasible Logic.
+% Pues permite verse como una especificación
+% ejecutable y, por lo tanto, facilita el monitoreo.
+%% ----
+%Implementación en COQ, checar 185
+
+Program level:
+Rescatan las logicas de Hoare,
+expresan corrección parcial.
+
+%Checar las out-of-gas exception
+
+Definir, Precondiciones y Postcondiciones,
+algo natural que sucede en {\it Solidity}.
+
+Smart contract verification te permite ver si el contraro
+es vulnerable, Gas-inefficient o un honeypot.
+
+%% Checar effectively callback free
+
+%% Clasificación de propiedades por dominios.
+\begin{itemize}
+\item seguridad
+\begin{itemize}
+\item Liquidity. Si falla se llaman ``greedy'',
+      los fondos no pueden ser liberados bajo ninfuna condición.
+\item Atomicity
+\item single-entrancy
+\item acces control
+\item arithmetic correctness
+\item reasonable resource consumption
+%% Propone que se checando si las ejecuciones son
+%% linerizability y serializability
+\end{itemize}
+
+%%
+\item Privacidad. Se suelen establecer
+protocolos criptograficos, como esquemas commitment y
+de timed commitment. La correctud de
+un commitment SC es descrito en terminos
+del conocimiento de los secretos(contraseñas
+que tienen tiempo para responder) de cada uno
+y los cambios en sus balances. 
+\item Finanzas. 
+\item Social games
+\item Asset Tracking 
+\end{itemize}
+\end{itemize}
+
+
+%% 4. Smart Contract FOrmal Verification Techniques
+Técnicas, herramientas y frameworks utilizados
+para hacer verificación de smart contracts categorizadas en:
+
+\begin{enumerate}
+\item Model Checking
+
+Su popularidad radica en que hay que
+modelar y especificar formalmente los SC
+y ya hay frameworks que trabajan con esos conceptos.
+
+Se pueden tener diferentes caracteristicas, al meter logica temporal, como lo son:
+concurrency, no determinismo, limitaciones del tiemp.
+
+Existen limitaciones expresivas del lenguaje de los model checkers.
+\item Theorem Proving
+
+Consiste en codificar el sistema y sus propiedades a una
+lógica matemática. Y es cuando un {\it theorem prover}
+intenta dar una derivación formal(prueba) que satisfaga las propiedades
+basadas en axiomas y reglas de inferencia del LF. A diferencía de los
+MC que solo verifican sistemas de estados finitos, los TP verifica
+sistemas infinitos.
+
+Se necesita interacción humana y expertis. Se utiliza Coq, Isabbelle/GOL y Agda.
+
+el caso de Concert
+[25] A. Arusoaie. 2020. Certifying Findel derivatives for blockchain. arXiv:2005.13602
+
+%% CASo de Nielsen y Spitters voting contract invariant
+% embed code in Coq en Scilla. Paper 186 Safer Smart Contract
+% programming with Schilla. 2019
+\item Symbolic and Concolic Execution   
+\item Program Verification
+\item Run Time Verification and Testing
+
+%% ¿Cuáles son las Diferencias entre SC y Legal Contracts?
+\end{enumerate}
+
+Por lo general temporal properties son verificadas
+por un model checker. Patrones de vulnerabilidad
+en CFG o SC
+son identificados usando ejecución simbolica
+Theorem Proving es usado para dar una especificación
+precisa y verificar {\it correctness} de los SC
+(usando tripletas de Hoare), lenguajes de programación
+y frameworkds. 
+
+%% 5. Discussión
+Checar 5.1 para más resultados
+
+%%Global clock
+
+%% 6. Conclusión 
+
+%% Gas consumption
+%% Temporal properties:
+   % liveness

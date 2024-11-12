@@ -1,0 +1,6 @@
+A proof of a shuffle is a zero-knowledge proof that one list of ciphertexts is a permutation and re-encryption of another list of ci- phertexts. We call a shuffle restricted if the permutation is chosen from a public subset of all permutations.
+
+CHVote system Switzerland
+
+El trabajo es importante en tanto existe una prueba de shuffle verificada en coq. Pero
+no tiene relación con las blockchains 

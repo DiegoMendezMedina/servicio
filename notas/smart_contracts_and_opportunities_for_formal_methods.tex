@@ -1,0 +1,92 @@
+% árticulo de 16 pagínas 
+
+% 1 Introducción
+
+"SC son programas que se corren en la
+capa más alta de una infraestructura
+economica, que dirigen/comandan/regulan
+el flujo de dinero de acuerdo a reglas
+definidas por el/los usuario(s)."
+
+%% Se centra en Ethereum
+
+SC proveen al usuario con {\it dinero programable}
+que se puede usar para que, de forma automática,
+se haga cumplir algún tipo de acuerdo entre entes.
+
+%En ETH:
+Los SC le dan al usuario el poder y expresividad
+de un lenguaje Turing Completo. Esto resulta
+en una ventaja y también en una desventaja.
+
+La mayoría de las BC son diseñadas para
+ser inmutables, es decir que no proveen
+ningun {\it built-in means to change smart contract code once its running}.
+
+Relación entre BC y academía.
+% 2 Background
+BC: carteras distribuidas que mantienen un {\it log} global de las
+transacciones subidas por los usuarios. Hay BC's {\it permissioned}
+y {\it permissionless}. Por lo general son implementadas con redes p2p,
+basadas en {\it proof-of-work mining}.
+
+Virtual Currency: las cuentas de los usuarios son asociadas con llaves públicas.
+
+En Ethereum hay un lenguaje para los SC, así también son usuarios. Los usuarios
+ordinarios son asociados con llaves publicas y las cuentas de contratos
+son asociadas con un fragmento de código ejecutable. Los usuarios pueden
+crear las cuentas de contraros publicando una transacción especial con
+el {\it bytecode} del nuevo contrato con una candidad inicial de Ether.
+
+Todas las cuentas pueden almacenar Ether. Solo puede disponer el Ether
+de las cuentas ordinarias quien tenga la llave privada. Las cuentas
+de contraro solo se pueden usar/gastar ejecutando las instrucciones del código.
+Así que se refieran a los SC como dinero programable.
+
+Solidity no es el único lenguaje en Ethereum. Donde los contratos son definidos como clases.
+Los usuarios pueden crear instancias de los objetos de la clase. Una vez creados, se
+les asigna un único identificador, también llamada dirección, que es una
+cadena de 32 bytes, suele ser un hash del código del contrato y el estado de la BC
+previo a su creación. 
+% 3 Smart Contract Disasters in Ethereum
+Se suelen usar los Sc de ethereum para recaudar fondos aunque
+principalmente se utilizan como Initial Coin Offerings (ICO's)
+que tienen un mecanismo para generar ganancía con una inversión inicial. 
+% 4 Research Trends
+
+The Decentralized Anonymous Organization. slock.it quería implementar
+la {\it smart property}  definida por Nick Szabo en 1997. Smart lock.
+
+Se compran DAO tokens con Ether. Los que tengan DAO tokens pueden
+votar en las actividades que patronice DAO. Los proyectos aceptados
+debían pagar ganancias a la DAO que sería distribuida a los dueños de tokens.
+
+%%% Complejidad del codigo de la DAO.
+Checar el blogpost de Phil Daian. \href{http://hackingdistributed.com/2016/06/18/analysis-of-the-dao-exploit/}{link}
+
+
+%% Gas limit
+%% Payment channels model
+
+%% un Smart contract payment channel protocol debe tener las siguientes
+%% propiedades:
+
+
+% 5 Challenges and opp for Formal Methods
+Composicion con código sin verificar y de rivales.
+Posible Solución: combinar verificación en tiempo de ejecución con análisis estático.
+                  Tener código de seguridad para reaccionar a esos casos.
+                  Escribir un modelo E, correspondiente al SC. E debe ser capaz
+                  de interactuar con código que no conozca y también con la
+                  infraestructrua (BC) donde se ejecuta el contraro.
+Distributed and asynchronous setting: SC suelen ser componentes de un protocolo
+                                      distribuido más complicado que el SC. Así
+                                      los SC suelen fungir como verificadores
+                                      criptograficos. Aún así dependen de la
+                                      funcionalidad del SC.
+Economic incentives: SC estan vinculados con deseos economicos. Los usuarios quieren
+                     verificar que su ganancia no sea negativa.  Analizar SC concretos
+                     con ayuda de propiedades de teoría de juegos como lo son
+                     {\it incentive compatibility}, usar formalismos como
+                     {\it payoff games}. 
+% 6 Conclusión

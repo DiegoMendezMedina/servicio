@@ -1,0 +1,210 @@
+\documentclass[14pt,letterpaper]{article}
+\usepackage[margin=2cm,includefoot]{geometry}
+\usepackage[spanish]{babel}
+
+\usepackage[utf8]{inputenc}
+
+%\usepackage{mathptmx}
+
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+
+\author{}
+\date{}
+\title{Aspectos teóricos de las blockchain en sistemas de votación
+\thanks{\small{Material desarrollado bajo el proyecto UNAM-2024.}}}
+\lhead{Aspectos teóricos de las blockchain en sistemas de votación}
+\rhead{Volver al \hyperlink{toc}{índice}}
+\begin{document}
+
+\ttfamily
+\maketitle
+\rmfamily
+
+%\section{Resumen}
+
+\addtocontents{toc}{\protect\hypertarget{toc}{}}
+\tableofcontents
+\newpage
+
+\section{Introducción}
+
+\section{Sistemas blockchain}
+\subsection{Que son}
+\noindent
+Los sistemas de blockchains o tecnologías de blockchain
+son el uso conjunto/simultáneo de: 1. la estructura de datos
+de cadena de bloques({\it blockchain}), 2. algún algoritmo distribuido de consenso,
+3. criptografía de llave pública y, recientemente, 4. contratos
+inteligentes ({\it smart contracts}); en una red {\it peer-to-peer}.
+Todos reunidos forman una red anoníma.
+
+\footnotesize
+{\bf (*Nota) pendiente a desarrollar: }
+Motivaciones economicas desde su fundación. Moneda digital y descentralizada.
+\normalsize
+
+%% Estructura de datos
+Sabemos que para $n$ agentes en una red distribuida el sistema puede tolerar hasta
+$\frac{n}{4}$ agentes maliciosos, dicho protocolo asume que se conocen
+todos los agentes. La {\it blockchain} como estructura de datos es creada con el fin 
+de resolver el problema del consenso Bizantino tolerante a fallos
+para un número arbitrario de agentes en una red anónima. 
+
+El primer acercamiento al desarrollo de estas fue la creación de las
+marcas de tiempo ({\it timestamps}) que denoten el momento en el que
+algúna operación fue efectuada. La respuesta se encontró en la
+criptografía. {\small {\bf (*Nota) pendiente a desarrollar:} Que es un Hash}
+
+Como ya mencionamos la motivación
+inicial de los sistemas blockchain era crear una moneda digital.
+Así, llamamos bloque a la información de las operaciones/transacciones
+con la supuesta moneda. Para poder preservar o simular el tiempo de forma efectiva
+falta alimentar el hash con otra cosa. Cada
+marca de tiempo debe probar que la información de cada bloque existió y de algúna forma
+estar vinculada con el pasado. Salvo por el bloque inicial, único bloque cuya marca
+de tiempo es el hash con la información inicial, el resto de bloques creará
+su marca de tiempo al hacer un hash sobre la información del bloque y
+la marca de tiempo anterior. Al hash ser único y seguiendo este procedimiento
+para cada bloque/tiempo nuevo es que tenemos la estructura de datos blockchain.
+
+{\small {\bf (*Nota) pendiente a desarrollar:} Mencionar que se pueden
+  tener varias ramas pero por que la más larga es la confiable.
+  Se pueden usar las blockchains sin tener sistemas distribuidos pero
+  como ya vimos no es el motivo de su creación. }
+
+%% p2p
+{\small {\bf (*Nota) pendiente a desarrollar:} Redes p2p con la
+  estructura de datos y criptografía de llave pública nos permiten transmitir
+  información cifrada y anónima para cada nodo. Ventajas sobre
+  redes cliente-servidor: Cualquier agente puede desconectarse de
+  la red, es descentralizado, encaminar la discusión al problema del consenso}
+
+%% Proof of work, etc
+{\small {\bf (*Nota) pendiente a desarrollar:} Introducir el rol de verificadores:
+  encargados de crear nuevos bloques, y
+  el llamado {\it zero block} con sus funcionalidades: primeros verificadores,
+  configuraciones de red, primeras monedas. Ver que existen diferentes
+  algoritmos de consenso en las BC: {\bf PoW, PoS}, PoT}
+
+%% Smart contracts
+{\small {\bf (*Nota) pendiente a desarrollar:} {\it SmartContract: Programas
+    que ejecutan los nodos de los sistemas de blockchain. Permiten automatizar
+    procesos de las blockchains}. Hablar de sus diferencias con el paso de mensajes y 
+  por que Bitcoin funcionaba sin los contratos. Por que son utiles y hablar
+  de Solidity. 
+  }
+
+%% BlockChains existentes
+
+Las notas de la pendiente sección se siguen de \cite{bitcoin} y \cite{ethereum}.
+
+\subsection{Sus vulnerabilidades}
+
+\noindent
+En los sistemas de blockchain existen dos tipos de vulnerabilidades.
+El primero esta asociado con el protocolo mismo. En este tipo
+se incluyen: uso de funciones criptográficas mal implementadas y
+formas de atacar los protocolos de consenso para controlar la red.
+Por otro lado el segundo surge de añadir smart contracts al sistema. Al
+ser Touring Completos crean problemas que dependen del
+protocolo de consenso pero también en las billeteras digitales y sus constantes
+interacciones. 
+
+{\small {\bf (*Nota) pendiente a desarrollar:} Hablar de las vulnerabilidades
+  a las que estan expuestos los algoritmos de protocolos y escenarios donde
+  se pierde el control de la blockchain.}
+
+{\small {\bf (*Nota) pendiente a desarrollar:} Hablar 1) del caso DAO, como es que
+  se podía ejecutar código inseguro/no verificado, y 2) de como las primitivas
+  de la EVM pueden crear bugs que un adversario puede utilizar.}
+
+Para ambas ideas pendientes de esta sección se utilizará. \cite{scANDformalMethods},
+\cite{surveysc}
+
+\section{Métodos formales en los sistemas de blockchain}
+
+%% A nivel de protocolo 
+\subsection{Formalizando consenso}
+
+{\small {\bf (*Nota) pendiente a desarrollar:} Hablaremos de las ventajas
+  ecólogicas de PoS sobre PoW, de como por la naturaleza de PoS el adversario
+  se compromete financiaremente, y sobre la primera formalización de PoS en coq}
+\cite{PoSCoq}.
+
+%% A nivel de smart contract
+\subsection{Creando mejores contratos inteligentes}
+
+{\small {\bf (*Nota) pendiente a desarrollar:} Clasificación que la
+  academía le ha dado a los problemas, antes mencionados, en los smart contracts.
+  1) Creación de lenguajes más seguros, 2) Analísis de programa (low level, seguridad),
+  3) Criptografía y 4) Nuevos protocolos } \cite{scANDformalMethods}\cite{surveysc}.
+           
+\section{Voto electrónico}
+
+\subsection{Antecedentes}
+
+{\small {\bf (*Nota) pendiente a desarrollar:} Motivaciones de voto electronico.
+Casos donde se ha votado electronicamente (casos cliente-servidor y supuestamente con
+blockchain), hablar brevemente de los sistemas donde se realizaron. Suiza chvote mixnets.
+Virginia y Russia con blockchain.}
+
+\subsection{Votando con blockhains}
+
+{\small {\bf (*Nota) pendiente a desarrollar:} Hablar del esquema de votos, la
+  llamada independencia de software y como las blockchains cubren de
+  mejor forma el e-vote } \cite{votingScheme}\cite{BCEV}\cite{ETHVote}
+
+{\small {\bf (*Nota) pendiente a desarrollar:} Traer a discusión lo antes explicado
+con el articulo del MIT \cite{MIT}.}
+           
+\subsection{Métodos Formales en la Votación Electronica}
+
+{\small {\bf (*Nota) pendiente a desarrollar:} Los dos casos exitosos y completos
+  que existen sobre verificación en herramientas de votación han sido en sistemas
+  cliente-servidor. Hablaremos de ellos dos y de que manera podríamos llevarlos a
+  la blockchain y como cubre problemas planteados por el MIT}\cite{homotallying}
+\cite{mixNets}\cite{MIT}.
+
+\subsubsection{Homomorphic}
+\subsubsection{MixNets}
+
+\section{Caso especifico}
+
+{\small {\bf (*Nota) pendiente a desarrollar:}
+  Una vez vista la importancía de los smartcontracts y se sus vulnerabilidades en el
+  sistema más popular; veremos el caso de Rholang, programa concurrente cuyo fundamento
+  es el cálculo $\rho$, una extensión del cálculo $\pi$. El lenguaje inicialmente
+  creo su sistema de blockchain, llamado RChain, pero también puede ser
+  utilizado en otros sistemas. Se introducira el cálculo rho, veremos las primitivas
+  del lenguaje/mostrar ejercicios que puede resolver (los del tutorial más unos propios)
+  y se mostrara como se puede llegar a un consenso PoS (el consenso verificable en coq)}
+\cite{rhoCalc}\cite{rhoLang}
+
+\subsection{El cálculo $\rho$}
+\subsection{Rholang}
+\subsection{PoS en Rholang}
+
+\section{Conclusión}
+
+\section{Bibliografía}
+
+\bibliographystyle{plain} 
+\bibliography{./doc/refs.bib} 
+
+\end{document}

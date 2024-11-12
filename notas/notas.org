@@ -1,0 +1,61 @@
+Las BC por si mismas, al ser una herramienta
+técnologica, corresponden al campo de la
+espistemología, cosas relacionadas a economia,
+y generar consenso. 
+
+Este trabajo es una intersección entre
+la ciberseguridad y métodos formales,
+con sus respectivos fundamentos en
+la lógica, criptografía, algebra, etc..
+Enfocados a un fin: El uso de las BC como
+métodos de votación. 
+
+Los recientes ataques sobre sistemas BC
+y la significativa cantidad de dinero
+que han logrado reunir han creado
+un interes en la comunidad para crear sistemas
+que ayuden a su verificación. Con esta
+relación también se ve nutrida la academía al ....
+
+Diferencias entre open ballot y secret ballot.
+
+*Zero Knowledge Proof.*
+
+Es entonces que presentamos un caso de uso especifico. Habiendo
+mencionado los distintos enfoques que existen en la comunidad academica
+hablaremos especificamente de las MixNets y de Rholang.
+
+Como trabajo futuro esta ver la implementaciôn de una MixNet
+verificable en un sistema de blockchain.
+
+* TODO Papers de Favio: [6/17]
+  - [X] A_Survey_of_Smart_Contract_Formal_Specification_and_Verification.pdf
+  - [X] smart_contracts_and_opportunities_for_formal_methods
+  - [X] 'ISoLa - Smart Contracts and Opportunities for Formal Methods.pdf'
+  - [-] Did_you_Mix_me
+  - [-] homomorphic-schulze.pdf
+  - [X] Formalizing_Nakamoto-Style_Proof_of_Stake.pdf
+  - [-] toychain-cpp18.pdf
+  - [-] exaa045.pdf
+  - [-] gore-2021.pdf
+  - [X] A_Hybrid_Formal_Verification_System_in_Coq_for_ensuring_Ethereum_SC.pdf 
+  - [-] Extracting_SC_Tested_and_Verified_in_Coq.pdf
+  - [-] casper-report.pdf
+  - [-] congress.pdf
+  - [X] contract_formal_verification-2.pdf
+  - +[ ] formal-verification.pdf+
+  - [ ] electronics-09-00255-v2.pdf
+  - [ ] LIPIcs- FSCD-2018-2.pdf
+  - [ ] mathematics-11-02966.pdf
+  - +[ ] 'Distributed Computing by Mobile Entities Current Research in Moving and Computing (Paola Flocchini, Giuseppe Prencipe etc.) (z-lib.org).pdf'+
+* Links
+  https://hackernoon.com/which-countries-are-casting-voting-using-blockchain-s33j34ab
+  https://www.krungsri.com/en/research/research-intelligence/blockchain-voting-2024
+  https://ijarcce.com/upload/2018/march-18/IJARCCE%2024.pdf
+  https://www.sciencedirect.com/science/article/pii/S1319157822002221?ref=pdf_download&fr=RR-2&rr=8e003c750a5f6c7f
+  https://ijecm.co.uk/wp-content/uploads/2023/01/1111.pdf
+  https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9787540
+  https://people.csail.mit.edu/rivest/pubs/PSNR20.pdf
+  https://bitcoin.org/bitcoin.pdf
+  https://ethereum.org/content/whitepaper/whitepaper-pdf/Ethereum_Whitepaper_-_Buterin_2014.pdf
+  https://doi.org/10.1016/j.entcs.2005.05.016
